@@ -28,6 +28,9 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface GcViewport {}
+  interface GcViewportAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -35,12 +38,14 @@ declare global {
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'GcViewport': Components.GcViewport;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'gc-viewport': Components.GcViewportAttributes;
   }
 
 
@@ -62,16 +67,24 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLGcViewportElement extends Components.GcViewport, HTMLStencilElement {}
+  var HTMLGcViewportElement: {
+    prototype: HTMLGcViewportElement;
+    new (): HTMLGcViewportElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'gc-viewport': HTMLGcViewportElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'gc-viewport': HTMLGcViewportElement;
   }
 
 
